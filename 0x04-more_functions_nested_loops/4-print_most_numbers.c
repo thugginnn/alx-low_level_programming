@@ -1,6 +1,6 @@
 /*
  * File: 4-print_most_numbers.c
- * Auth: Suara Ayomide
+ * Auth: Paul Iyiade
  */
 
 #include "main.h"
