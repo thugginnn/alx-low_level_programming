@@ -4,32 +4,27 @@
 
 #define PASSWORD_LENGTH 10
 
-char *generatePassword() {
-    char *password = malloc((PASSWORD_LENGTH + 1) * sizeof(char));  // Allocate memory for password
-
-    // Characters to be used in the password
-    const char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-    // Seed the random number generator
-    srand(time(NULL));
-
-    // Generate random characters for the password
-    for (int i = 0; i < PASSWORD_LENGTH; i++) {
-        int randomIndex = rand() % (sizeof(characters) - 1);
-        password[i] = characters[randomIndex];
-    }
-
-    password[PASSWORD_LENGTH] = '\0';  // Add null terminator
-
-    return password;
+char generateRandomChar() {
+    // Generate a random character between ASCII 33 and 126
+    return (char)(rand() % 94 + 33);
 }
 
-int main() {
-    char *password = generatePassword();
+int main(void) {
+    // Seed the random number generator with the current time
+    srand(time(NULL));
 
-    printf("Generated Password: %s\n", password);
+    char password[PASSWORD_LENGTH + 1]; // +1 for the null terminator
+    int i;
 
-    free(password);  // Free the allocated memory
+    // Generate random characters for the password
+    for (i = 0; i < PASSWORD_LENGTH; i++) {
+        password[i] = generateRandomChar();
+    }
+
+    password[PASSWORD_LENGTH] = '\0'; // Null terminate the password string
+
+    // Print the generated password
+    printf("Generated password: %s\n", password);
 
     return 0;
 }
