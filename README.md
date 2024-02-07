@@ -60,6 +60,8 @@ This repository contains projects on the C programming language. The projects co
 - 0x17-doubly_linked_lists
 - 0x18-dynamic_libraries
 - 0x1A-hash_tables
+- 0x1C-makefiles
+- 0x1E-search_algorithms
 
 ## More Resources
 
